@@ -100,11 +100,12 @@ function openSnakeMobile(){
   <div></div>
   <button class="btn" onclick="setDir(0,-10)">⬆️</button>
   <div></div>
-  <button class="btn" onclick="setDir(-10,0)">⬅️</button>
   <button class="btn" onclick="setDir(10,0)">➡️</button>
   <div></div>
-  <button class="btn" onclick="setDir(0,10)">⬇️</button>
+  <button class="btn" onclick="setDir(-10,0)">⬅️</button>
   <div></div>
+  <button class="btn" onclick="setDir(0,10)">⬇️</button>
+
  </div>
  `);
 
@@ -177,7 +178,7 @@ function randomFood(){
 function endSnakeMobile(){
  clearInterval(snakeTimer);
  saveScore('Snake',scoreM);
- playLose();
+ //playLose();
  alert('💀 Game Over | Score: '+scoreM);
 }
 
