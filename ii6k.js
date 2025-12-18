@@ -42,7 +42,7 @@ lockScreen.addEventListener('mouseup', e=>{
 });
 
 function showPassword(){
- document.getElementById('lockHint').textContent = "Enter Password";
+ document.getElementById('lockHint').textContent = "Enter 1234";
  passwordBox.classList.remove('hidden');
 }
 
