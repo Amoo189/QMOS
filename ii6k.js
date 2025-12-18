@@ -9,6 +9,17 @@ setTimeout(()=>{
  document.getElementById('lockScreen').style.display='flex';
 },2500);
 
+window.addEventListener("load", () => {
+  const music = document.getElementById("welcomeMusic");
+  music.volume = 0.5; // صدا (0 تا 1)
+
+  music.play().catch(() => {
+    // برای مرورگرهایی که اجازه auto-play نمی‌دن
+    document.addEventListener("click", () => {
+      music.play();
+    }, { once: true });
+  });
+});
 
 
 const LOCK_PASSWORD = "1234"; // ← رمز عبور دلخواه
