@@ -134,16 +134,23 @@ function openSnakeMobile(){
   startX=t.clientX; startY=t.clientY;
  });
 
- canvas.addEventListener('touchend',e=>{
-  const t=e.changedTouches[0];
-  const dx=t.clientX-startX;
-  const dy=t.clientY-startY;
-  if(Math.abs(dx)>Math.abs(dy)){
-   setDir(dx>0?10:-10,0);
-  }else{
-   setDir(0,dy>0?10:-10);
+ let lastTouchTime = 0;
+
+canvas.addEventListener('touchend', e => {
+  const now = Date.now();
+  // حداقل 100ms بین هر سوییپ فاصله باشد
+  if (now - lastTouchTime < 100) return;
+  lastTouchTime = now;
+  
+  const t = e.changedTouches[0];
+  const dx = t.clientX - startX;
+  const dy = t.clientY - startY;
+  if (Math.abs(dx) > Math.abs(dy)) {
+    setDir(dx > 0 ? 10 : -10, 0);
+  } else {
+    setDir(0, dy > 0 ? 10 : -10);
   }
- });
+});
 
  clearInterval(snakeTimer);
  snakeTimer=setInterval(()=>snakeLoop(ctx,canvas),190);
