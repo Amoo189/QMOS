@@ -153,7 +153,7 @@ canvas.addEventListener('touchend', e => {
 });
 
  clearInterval(snakeTimer);
- snakeTimer=setInterval(()=>snakeLoop(ctx,canvas),190);
+ snakeTimer=setInterval(()=>snakeLoop(ctx,canvas),140);
 }
 
 function setDir(x,y){
