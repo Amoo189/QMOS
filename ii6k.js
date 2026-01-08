@@ -95,95 +95,68 @@ function closeM(){ modal.style.display='none'; }
 
 
 
+
+
+  
+    
 let snakeM, foodM, dirM, scoreM, snakeTimer;
 
-function openSnakeMobile() {
-  openM(`
-    <h3 style="color:var(--neon-green)">🐍 Snake Mobile</h3>
-    
-    <canvas id="snakeM" width="280" height="280"
-      style="background:black;border-radius:16px;touch-action:none"></canvas>
-    
-    <p id="scoreM">Score: 0</p>
-    
-    <div style="display:grid;grid-template-columns:repeat(3,60px);
-      gap:8px;justify-content:center;margin-top:12px">
-      <div></div>
-      <button class="btn" onclick="setDirMobile(0,-10)">⬆️</button>
-      <div></div>
-      <button class="btn" onclick="setDirMobile(10,0)">➡️</button>
-      <div></div>
-      <button class="btn" onclick="setDirMobile(-10,0)">⬅️</button>
-      <div></div>
-      <button class="btn" onclick="setDirMobile(0,10)">⬇️</button>
-    </div>
-  `);
+function openSnakeMobile(){
+ openM(`
+ <h3 style="color:var(--neon-green)">🐍 Snake Mobile</h3>
 
-  const canvas = document.getElementById('snakeM');
-  const ctx = canvas.getContext('2d');
+ <canvas id="snakeM" width="280" height="280"
+  style="background:black;border-radius:16px;touch-action:none"></canvas>
 
-  snakeM = [{x: 140, y: 140}];
-  foodM = randomFood();
-  dirM = {x: 20, y: 0}; // اینجا سرعت اولیه رو 20 در نظر گرفته!
-  scoreM = 0;
+ <p id="scoreM">Score: 0</p>
 
-  // ---- تغییر اصلی اینجاست ----
-  let isMoving = false; // فلگ برای جلوگیری از حرکت همزمان
-  
-  let startX, startY;
-  canvas.addEventListener('touchstart', e => {
-    const t = e.touches[0];
-    startX = t.clientX;
-    startY = t.clientY;
-    isMoving = false; // ریست فلگ
-  });
+ <div style="display:grid;grid-template-columns:repeat(3,60px);
+  gap:8px;justify-content:center;margin-top:12px">
+  <div></div>
+  <button class="btn" onclick="setDir(0,-10)">⬆️</button>
+  <div></div>
+  <button class="btn" onclick="setDir(10,0)">➡️</button>
+  <div></div>
+  <button class="btn" onclick="setDir(-10,0)">⬅️</button>
+  <div></div>
+  <button class="btn" onclick="setDir(0,10)">⬇️</button>
 
-  canvas.addEventListener('touchmove', e => {
-    e.preventDefault(); // جلوگیری از اسکرول
-    if (isMoving) return; // اگر در حال حرکت است، جدیدی نگیر
-    
-    const t = e.touches[0];
-    const dx = t.clientX - startX;
-    const dy = t.clientY - startY;
-    
-    // حداقل سوییپ 30px برای ثبت حرکت
-    if (Math.abs(dx) > 30 || Math.abs(dy) > 30) {
-      isMoving = true; // فلگ رو فعال کن
-      
-      if (Math.abs(dx) > Math.abs(dy)) {
-        setDir(dx > 0 ? 10 : -10, 0);
-      } else {
-        setDir(0, dy > 0 ? 10 : -10);
-      }
-      
-      // ریست نقطه شروع برای حرکت بعدی
-      startX = t.clientX;
-      startY = t.clientY;
-    }
-  });
+ </div>
+ `);
 
-  canvas.addEventListener('touchend', e => {
-    isMoving = false; // ریست فلگ وقتی لمسی تمام شد
-  });
+ const canvas=document.getElementById('snakeM');
+ const ctx=canvas.getContext('2d');
 
-  clearInterval(snakeTimer);
-  snakeTimer = setInterval(() => snakeLoop(ctx, canvas), 140);
+ snakeM=[{x:140,y:140}];
+ foodM=randomFood();
+ dirM={x:20,y:0};
+ scoreM=0;
+
+ let startX,startY;
+ canvas.addEventListener('touchstart',e=>{
+  const t=e.touches[0];
+  startX=t.clientX; startY=t.clientY;
+ });
+
+ canvas.addEventListener('touchend',e=>{
+  const t=e.changedTouches[0];
+  const dx=t.clientX-startX;
+  const dy=t.clientY-startY;
+  if(Math.abs(dx)>Math.abs(dy)){
+   setDir(dx>0?10:-10,0);
+  }else{
+   setDir(0,dy>0?10:-10);
+  }
+ });
+
+ clearInterval(snakeTimer);
+ snakeTimer=setInterval(()=>snakeLoop(ctx,canvas),190);
 }
 
-// ---- تابع setDir هم باید چک شود ----
-function setDir(x, y) {
-  // اگر مار فقط یک بخش دارد، هر جهتی مجاز است
-  if (snakeM.length === 1) {
-    dirM = {x, y};
-    return;
-  }
-  
-  // در غیر این صورت، فقط اگر جهت مخالف نباشد
-  if (!(dirM.x === -x && dirM.y === -y)) {
-    dirM = {x, y};
-  }
+function setDir(x,y){
+ if(dirM.x===-x && dirM.y===-y) return;
+ dirM={x,y};
 }
-
 
 function snakeLoop(ctx,c){
  const head={x:snakeM[0].x+dirM.x,y:snakeM[0].y+dirM.y};
