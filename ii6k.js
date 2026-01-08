@@ -146,7 +146,7 @@ function openSnakeMobile(){
  });
 
  clearInterval(snakeTimer);
- snakeTimer=setInterval(()=>snakeLoop(ctx,canvas),140);
+ snakeTimer=setInterval(()=>snakeLoop(ctx,canvas),190);
 }
 
 function setDir(x,y){
