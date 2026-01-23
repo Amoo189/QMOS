@@ -622,37 +622,42 @@ function shutdownSystem(){
 }
 
 
-function updateClock() {
+
+ function openClock() {
+  openM();
+  document.getElementById("content").innerHTML = `
+    <h2 style="color:cyan;margin-bottom:20px;">Analog Clock</h2>
+    <div class="clock-app">
+      <div class="analog-clock">
+        <div class="clock-hand clock-hour" id="cHour"></div>
+        <div class="clock-hand clock-minute" id="cMinute"></div>
+        <div class="clock-hand clock-second" id="cSecond"></div>
+        <div class="clock-center"></div>
+      </div>
+    </div>
+  `;
+}
+
+function updateAnalogClock() {
   const now = new Date();
 
-  const seconds = now.getSeconds();
-  const minutes = now.getMinutes();
-  const hours = now.getHours() % 12;
+  const s = now.getSeconds();
+  const m = now.getMinutes();
+  const h = now.getHours() % 12;
 
-  const secondDeg = seconds * 6;
-  const minuteDeg = minutes * 6 + seconds * 0.1;
-  const hourDeg = hours * 30 + minutes * 0.5;
+  document.getElementById("cSecond").style.transform =
+    `rotate(${s * 6}deg)`;
 
-  document.getElementById("secondHand").style.transform =
-    `rotate(${secondDeg}deg)`;
+  document.getElementById("cMinute").style.transform =
+    `rotate(${m * 6 + s * 0.1}deg)`;
 
-  document.getElementById("minuteHand").style.transform =
-    `rotate(${minuteDeg}deg)`;
-
-  document.getElementById("hourHand").style.transform =
-    `rotate(${hourDeg}deg)`;
+  document.getElementById("cHour").style.transform =
+    `rotate(${h * 30 + m * 0.5}deg)`;
 }
 
-setInterval(updateClock, 1000);
-updateClock();
-
-function toggleClock() {
-  // فعلاً فقط افکت کوچیک
-  document.getElementById("analogClock").style.boxShadow =
-    "0 0 40px cyan";
-  setTimeout(() => {
-    document.getElementById("analogClock").style.boxShadow =
-      "0 0 20px cyan";
-  }, 200);
-}
+setInterval(() => {
+  if (document.getElementById("cSecond")) {
+    updateAnalogClock();
+  }
+}, 1000);
 
