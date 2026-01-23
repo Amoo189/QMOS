@@ -182,9 +182,10 @@ header{padding:14px;text-align:center;font-size:1.6rem;color:var(--neon-cyan);te
   position: absolute;
   top: 50%;
   left: 50%;
-  transform-origin: left;
-  background: cyan;
+  transform-origin: 0% 50%;
+  transform: rotate(-90deg);
 }
+
 
 .clock-hour {
   width: 50px;
