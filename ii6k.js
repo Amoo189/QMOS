@@ -626,7 +626,8 @@ function shutdownSystem(){
  function openClock() {
   openM();
   document.getElementById("content").innerHTML = `
-    <h2 style="color:cyan;margin-bottom:20px;">Analog Clock</h2>
+    <h2 style="color:cyan;margin-bottom:16px;">Clock</h2>
+
     <div class="clock-app">
       <div class="analog-clock">
         <div class="clock-hand clock-hour" id="cHour"></div>
@@ -635,24 +636,36 @@ function shutdownSystem(){
         <div class="clock-center"></div>
       </div>
     </div>
+
+    <div id="digitalClock" class="digital-clock">00:00:00</div>
   `;
 }
+
 
 function updateAnalogClock() {
   const now = new Date();
 
   const s = now.getSeconds();
   const m = now.getMinutes();
-  const h = now.getHours() % 12;
+  const h = now.getHours();
+
+  const hh = String(h).padStart(2, "0");
+  const mm = String(m).padStart(2, "0");
+  const ss = String(s).padStart(2, "0");
+
+  if (document.getElementById("digitalClock")) {
+    document.getElementById("digitalClock").innerText =
+      `${hh}:${mm}:${ss}`;
+  }
 
   document.getElementById("cSecond").style.transform =
-    `rotate(${s * 6}deg)`;
+    `rotate(${s * 6 - 90}deg)`;
 
   document.getElementById("cMinute").style.transform =
-    `rotate(${m * 6 + s * 0.1}deg)`;
+    `rotate(${m * 6 + s * 0.1 - 90}deg)`;
 
   document.getElementById("cHour").style.transform =
-    `rotate(${h * 30 + m * 0.5}deg)`;
+    `rotate(${(h % 12) * 30 + m * 0.5 - 90}deg)`;
 }
 
 setInterval(() => {
