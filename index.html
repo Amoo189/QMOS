@@ -61,6 +61,10 @@
  <div class="app neon-card" onclick="phone()"><span>📞</span>Phone</div>
  <div class="app neon-card" onclick="files()"><span>📁</span>Files</div>
  <div class="app neon-card" onclick="music()"><span>🎵</span>Music</div>
+ <div class="app neon-card" onclick="openClock()">
+  <span>🕒</span>Clock
+</div>
+
  <div class="app neon-card" onclick="settings()"><span>⚙️</span>Settings</div>
  <div class="app neon-card" onclick="about()"><span>ℹ️</span>About</div>
  <div class="app neon-card" onclick="openAI()"><span>🤖</span>AI</div>
@@ -112,16 +116,7 @@
 <audio id="welcomeMusic">
   <source src="Soft Piano Dramatic Modern Classical Composition B (2).mp3" type="audio/mpeg">
 </audio>
- <!-- Analog Clock Shortcut -->
-<div id="analogClock" onclick="toggleClock()">
-  <div class="clock">
-    <div class="hand hour" id="hourHand"></div>
-    <div class="hand minute" id="minuteHand"></div>
-    <div class="hand second" id="secondHand"></div>
-    <div class="center-dot"></div>
-  </div>
-</div>
-
+ 
 <script src="ii6k.js"></script>
 </body>
 </html>
