@@ -148,4 +148,73 @@ header{padding:14px;text-align:center;font-size:1.6rem;color:var(--neon-cyan);te
  text-align:center;
 }
 
+
+
+
+
+
 .hidden{display:none}
+
+
+
+
+/* Analog Clock Shortcut */
+#analogClock {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #0ff, #003);
+  box-shadow: 0 0 20px cyan;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.clock {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #000;
+}
+
+.hand {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background: cyan;
+  top: 50%;
+  left: 50%;
+  transform-origin: left;
+  transform: rotate(90deg);
+}
+
+.hour {
+  width: 35%;
+  height: 3px;
+}
+
+.minute {
+  width: 45%;
+}
+
+.second {
+  background: red;
+  height: 1px;
+}
+
+.center-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: cyan;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
