@@ -186,6 +186,15 @@ header{padding:14px;text-align:center;font-size:1.6rem;color:var(--neon-cyan);te
   transform: rotate(-90deg);
 }
 
+/* Digital Clock */
+.digital-clock {
+  margin-top: 14px;
+  font-size: 24px;
+  font-family: monospace;
+  color: cyan;
+  text-align: center;
+  text-shadow: 0 0 10px cyan;
+}
 
 .clock-hour {
   width: 50px;
