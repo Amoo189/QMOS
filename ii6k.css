@@ -159,59 +159,53 @@ header{padding:14px;text-align:center;font-size:1.6rem;color:var(--neon-cyan);te
 
 
 /* Analog Clock Shortcut */
-#analogClock {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #0ff, #003);
-  box-shadow: 0 0 20px cyan;
+
+/* Analog Clock App */
+.clock-app {
   display: flex;
-  align-items: center;
   justify-content: center;
-  cursor: pointer;
-  z-index: 9999;
+  align-items: center;
+  padding: 30px;
 }
 
-.clock {
+.analog-clock {
   position: relative;
-  width: 70px;
-  height: 70px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   background: #000;
+  border: 4px solid cyan;
+  box-shadow: 0 0 25px cyan;
 }
 
-.hand {
+.clock-hand {
   position: absolute;
-  width: 50%;
-  height: 2px;
-  background: cyan;
   top: 50%;
   left: 50%;
   transform-origin: left;
-  transform: rotate(90deg);
+  background: cyan;
 }
 
-.hour {
-  width: 35%;
+.clock-hour {
+  width: 50px;
+  height: 5px;
+}
+
+.clock-minute {
+  width: 70px;
   height: 3px;
 }
 
-.minute {
-  width: 45%;
-}
-
-.second {
+.clock-second {
+  width: 85px;
+  height: 2px;
   background: red;
-  height: 1px;
 }
 
-.center-dot {
+.clock-center {
   position: absolute;
-  width: 6px;
-  height: 6px;
+  width: 10px;
+  height: 10px;
   background: cyan;
   border-radius: 50%;
   top: 50%;
