@@ -617,9 +617,30 @@ function openSystem(){ openM(`<h3 style="color:var(--neon-cyan)">Quantum System<
 
 
 
-function shutdownSystem(){
- document.body.innerHTML=`<div style="background:black;color:#ff3b3b;height:100vh;display:flex;align-items:center;justify-content:center;font-size:1.5rem;text-shadow:0 0 30px #ff3b3b;">Refresh this page>>System is shutting down...</div>`;
+function shutdownSystem() {
+  document.body.innerHTML = `
+    <div style="
+      background:black;
+      color:#ff3b3b;
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.5rem;
+      text-shadow:0 0 30px #ff3b3b;
+      flex-direction:column;
+    ">
+      <div>System is shutting down...</div>
+      <div style="font-size:1rem;margin-top:10px;">Closing app</div>
+    </div>
+  `;
+
+  setTimeout(() => {
+    window.close();              // تلاش برای بستن
+    window.location.href = "about:blank"; // خروج عملی
+  }, 1500);
 }
+
 
 
 
