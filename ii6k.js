@@ -705,3 +705,16 @@ if ("serviceWorker" in navigator) {
       .catch(err => console.log("SW error", err));
   });
 }
+
+
+function isPWA() {
+  return window.matchMedia('(display-mode: standalone)').matches
+    || window.navigator.standalone === true;
+}
+
+window.addEventListener("load", () => {
+  if (isPWA()) {
+    document.getElementById("pwa-exit-btn").style.display = "block";
+  }
+});
+
