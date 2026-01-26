@@ -717,4 +717,27 @@ window.addEventListener("load", () => {
     document.getElementById("pwa-exit-btn").style.display = "block";
   }
 });
+function enableExitOnBack() {
+  history.pushState(null, "", location.href);
+
+  window.addEventListener("popstate", () => {
+    // خروج عملی از اپ
+    document.body.innerHTML = `
+      <div style="
+        background:black;
+        color:#ff3b3b;
+        height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:1.3rem;
+      ">
+        App closed
+      </div>
+    `;
+  });
+}
+if (isPWA()) {
+  enableExitOnBack();
+}
 
