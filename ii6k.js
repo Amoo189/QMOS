@@ -704,8 +704,11 @@ if ("serviceWorker" in navigator) {
 
 
 function isPWA() {
-  return window.matchMedia('(display-mode: standalone)').matches
-    || window.navigator.standalone === true;
+  return window.matchMedia('(display-mode: standalone)').matches;
+}
+
+function isAndroid() {
+  return /Android/i.test(navigator.userAgent);
 }
 
 window.addEventListener("load", () => {
@@ -713,6 +716,18 @@ window.addEventListener("load", () => {
     document.getElementById("pwa-exit-btn").style.display = "block";
   }
 });
+window.addEventListener("load", () => {
+  if (isAndroid() && isPWA()) {
+    const btn = document.getElementById("pwa-exit-btn");
+    if (btn) btn.style.display = "block";
+  }
+});
+document.addEventListener("DOMContentLoaded", () => {
+  if (isAndroid() && isPWA()) {
+    document.getElementById("pwa-exit-btn").style.display = "block";
+  }
+});
+
 function enableExitOnBack() {
   history.pushState(null, "", location.href);
 
