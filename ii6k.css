@@ -102,6 +102,7 @@ header{padding:14px;text-align:center;font-size:1.6rem;color:var(--neon-cyan);te
 #lockScreen{
  position:fixed;
  inset:0;
+ align-items:center;
  background:black;
  z-index:900;
  overflow:hidden;
@@ -123,6 +124,7 @@ header{padding:14px;text-align:center;font-size:1.6rem;color:var(--neon-cyan);te
 }
 
 .lock-content{
+ align-items:center;
  position:relative;
  z-index:2;
  height:100%;
@@ -135,6 +137,7 @@ header{padding:14px;text-align:center;font-size:1.6rem;color:var(--neon-cyan);te
 }
 
 #passwordBox{
+ align-items:center;
  margin-top:20px;
 }
 
