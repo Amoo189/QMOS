@@ -598,7 +598,7 @@ function browser(){
 
 
 function music(){ openM(`<input type="file" accept="audio/*" onchange="p(this)"><audio id="audio" controls></audio>`); window.p=i=>audio.src=URL.createObjectURL(i.files[0]); }
-function phone(){ openM(`<input id:"username" type:"number" placeholder="شماره"><button class="btn" onclick="alert('در حال تماس...')">تماس</button>`); }
+function phone(){ openM(`<input id:"username" type:"number" placeholder=" شماره را وارد کنید"><button class="btn" onclick="alert('در حال تماس...')">تماس</button>`); }
 function files(){ openM(`<input type="file" multiple onchange="for(let f of this.files){list.innerHTML+= '<li>'+f.name+'</li>'}"><ul id="list"></ul>`); }
 function settings(){
  openM(`
