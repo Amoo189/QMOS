@@ -14,7 +14,7 @@ window.addEventListener("load", () => {
   music.volume = 0.5; // صدا (0 تا 1)
 
   music.play().catch(() => {
-    // برای مرورگرهایی که اجازه auto-play نمی‌دن
+    // 
     document.addEventListener("click", () => {
       music.play();
     }, { once: true });
@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
 });
 
 
-const LOCK_PASSWORD = "1234"; // ← رمز عبور دلخواه
+const LOCK_PASSWORD = "1234"; // ← 
 
 const lockScreen = document.getElementById('lockScreen');
 const passwordBox = document.getElementById('passwordBox');
@@ -598,7 +598,7 @@ function browser(){
 
 
 function music(){ openM(`<input type="file" accept="audio/*" onchange="p(this)"><audio id="audio" controls></audio>`); window.p=i=>audio.src=URL.createObjectURL(i.files[0]); }
-function phone(){ openM(`<input placeholder="شماره"><button class="btn" onclick="alert('در حال تماس...')">تماس</button>`); }
+function phone(){ openM(`<input id:"username" placeholder="شماره"><button class="btn" onclick="alert('در حال تماس...')">تماس</button>`); }
 function files(){ openM(`<input type="file" multiple onchange="for(let f of this.files){list.innerHTML+= '<li>'+f.name+'</li>'}"><ul id="list"></ul>`); }
 function settings(){
  openM(`
@@ -612,7 +612,7 @@ function settings(){
 }
 function about(){ openM(`<h3 class="neon-text">POWERED BY SALEH AMOO</h3>`); }
 function about2(){ openM(`<h2 class="neon-text">Developed By SA||Saleh Amoo</h2>`); }
-function openSystem(){ openM(`<h3 style="color:var(--neon-cyan)">Quantum System</h3><ul><li>AI: Real GPT-5 / Claude / Grok</li><li>Games: 3 Active</li></ul>`); }
+function openSystem(){ openM(`<h3 style="color:var(--neon-cyan)">Quantum System</h3><ul><li>cpu:active</li><li>Games: all Active</li></ul>`); }
 
 
 
