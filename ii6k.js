@@ -71,19 +71,19 @@ function unlock(){
 }
 
 
-// Login
-//function login(){
-// const u = document.getElementById('username').value.trim();
-// if(!u) return alert('Enter a username');
-// localStorage.setItem('q_user', u);
-// document.getElementById('login').style.display='none';
-// alert(`👤 Wellcome ${u}`);
-//}
+ Login
+function login(){
+ const u = document.getElementById('username').value.trim();
+ if(!u) return alert('Enter a username');
+ localStorage.setItem('q_user', u);
+ document.getElementById('login').style.display='none';
+ alert(`👤 Wellcome ${u}`);
+}
 
-//function lockSystem(){
-// document.getElementById('login').style.display='none';
-// showLock();
-//}
+function lockSystem(){
+ document.getElementById('login').style.display='none';
+ showLock();
+}
 
 
 // Modal helpers
@@ -207,7 +207,7 @@ function endSnakeMobile(){
 //}
 
 function openLeaderboard(){
-// const all=JSON.parse(localStorage.getItem('scores')||'[]');
+ const all=JSON.parse(localStorage.getItem('scores')||'[]');
 
  openM(`
  <h3 style="color:var(--neon-cyan)">🏆 Leaderboard</h3>
