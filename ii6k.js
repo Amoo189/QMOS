@@ -192,7 +192,7 @@ function randomFood(){
 
 function endSnakeMobile(){
  clearInterval(snakeTimer);
- saveScore('Snake',scoreM);
+ //saveScore('Snake',scoreM);
  //playLose();
  alert('💀 Game Over | Score: '+scoreM);
 }
@@ -211,7 +211,7 @@ function openLeaderboard(){
 
  openM(`
  <h3 style="color:var(--neon-cyan)">🏆 Leaderboard</h3>
- ${['Snake','TicTacToe','Guess','Reaction'].map(g=>{
+ ${['soon'].map(g=>{
   const top=all.filter(s=>s.game===g)
   .sort((a,b)=>b.score-a.score).slice(0,3);
   return `
