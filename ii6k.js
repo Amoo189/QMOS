@@ -199,15 +199,15 @@ function endSnakeMobile(){
 
 
 
-function saveScore(game,score){
- const user=localStorage.getItem('q_user')||'Guest';
- const all=JSON.parse(localStorage.getItem('scores')||'[]');
- all.push({user,game,score,time:Date.now()});
- localStorage.setItem('scores',JSON.stringify(all));
-}
+//function saveScore(game,score){
+// const user=localStorage.getItem('q_user')||'Guest';
+// const all=JSON.parse(localStorage.getItem('scores')||'[]');
+// all.push({user,game,score,time:Date.now()});
+// localStorage.setItem('scores',JSON.stringify(all));
+//}
 
 function openLeaderboard(){
- const all=JSON.parse(localStorage.getItem('scores')||'[]');
+// const all=JSON.parse(localStorage.getItem('scores')||'[]');
 
  openM(`
  <h3 style="color:var(--neon-cyan)">🏆 Leaderboard</h3>
