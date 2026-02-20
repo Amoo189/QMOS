@@ -72,18 +72,18 @@ function unlock(){
 
 
 // Login
-function login(){
- const u = document.getElementById('username').value.trim();
- if(!u) return alert('Enter a username');
- localStorage.setItem('q_user', u);
- document.getElementById('login').style.display='none';
- alert(`👤 Wellcome ${u}`);
-}
+//function login(){
+// const u = document.getElementById('username').value.trim();
+// if(!u) return alert('Enter a username');
+// localStorage.setItem('q_user', u);
+// document.getElementById('login').style.display='none';
+// alert(`👤 Wellcome ${u}`);
+//}
 
-function lockSystem(){
- document.getElementById('login').style.display='none';
- showLock();
-}
+//function lockSystem(){
+// document.getElementById('login').style.display='none';
+// showLock();
+//}
 
 
 // Modal helpers
