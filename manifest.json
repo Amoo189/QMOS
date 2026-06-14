@@ -1,18 +1,23 @@
 {
-  "name": "QMOS",
-  "short_name": "QMOS",
-  "start_url": "./index.html",
+  "name": "SA-APPS",
+  "short_name": "SA",
+  "description": "لانچر ابزارهای کاربردی، آموزشی و سرگرمی",
+  "start_url": "/SA-KIT/",
+  "scope": "/SA-KIT/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "orientation": "portrait",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "lang": "fa",
+  "dir": "rtl",
   "icons": [
     {
-      "src": "SA.png",
+      "src": "kit.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "SA.png",
+      "src": "kit.png",
       "sizes": "512x512",
       "type": "image/png"
     }
